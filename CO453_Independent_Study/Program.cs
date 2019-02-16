@@ -7,8 +7,13 @@ namespace CO453_Independent_Study
     class Program
     {
 
-        //public static void Main(String[] arg)
-        //{
-        //}
+        public static void Main(int[] numbers)
+        {
+            T54_Bubble.InputNumbers();
+            T54_Bubble.Display(numbers);
+            T54_Bubble.SortNumbers(numbers);
+
+            Console.ReadKey();
+        }
     }
 }

@@ -24,7 +24,7 @@ namespace CO453_Independent_Study
         public static string measurements;
 
         //The program executes here
-        private static void Main(String[] arg)
+        private static void Main(string[] arg)
         {
             UserLib.WriteTitle("BMI calculator");
 

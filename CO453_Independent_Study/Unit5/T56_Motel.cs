@@ -38,11 +38,11 @@ namespace CO453_Independent_Study.Unit5
                 Console.WriteLine("5. Quit");
                 Console.WriteLine("Enter your choice: ");
                 choice = Console.ReadLine();
-                if(choice == "1")
+                if (choice == "1")
                 {
                     BookRoom();
                 }
-            }
+            } while (choice == ""); //tive de adicionar isto
         }
 
         public void BookRoom()
@@ -54,7 +54,7 @@ namespace CO453_Independent_Study.Unit5
             Console.WriteLine("Enter the room number: ");
             roomNumber = Convert.ToInt32(Console.ReadLine());
             Console.Write("How many guests: ");
-            guests = Console.ToInt32(Console.ReadLine());
+            guests = Convert.ToInt32(Console.ReadLine());
             rooms[roomNumber] = guests; //Make the booking
             Console.WriteLine("Room " + roomNumber + " booked for " + guests);
         }

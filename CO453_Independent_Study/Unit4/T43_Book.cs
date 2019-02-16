@@ -30,7 +30,7 @@ namespace CO453_Independent_Study.Unit4
         }
 
         //The program executes here
-        private static void Main(String[] arg)
+        private static void Main(string[] arg)
         {
             UserLib.WriteTitle("Book");
 

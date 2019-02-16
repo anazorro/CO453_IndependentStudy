@@ -47,7 +47,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>CO453_Independent_Study.T44_BMI</StartupObject>
+    <StartupObject>CO453_Independent_Study.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
