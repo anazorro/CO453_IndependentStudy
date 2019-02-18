@@ -11,6 +11,9 @@ namespace CO453_Independent_Study.Unit5
     /// </summary>
     class T54_Bubble
     {
+        public static int z, j;
+        public static string[] names = new string[5];
+
         /// <summary>
         /// This method will input five numbers into an array
         /// </summary>
@@ -69,30 +72,40 @@ namespace CO453_Independent_Study.Unit5
             Console.WriteLine("\n" + "Sorted array :");
             foreach (int i in numbers)
                 Console.WriteLine(i);
-            
+
             Console.Write("\n");
         }
 
         /// <summary>
-        
         /// This method will input five names into an array
         /// </summary>
         public static void InputNames()
         {
+            Console.WriteLine("Please enter 5 names ");
 
+            for ( z = 0; z <= 4; ++z)
+            {
+                Console.Write("> ");
+                names[z] = Console.ReadLine();
+            }
+
+            Console.Write("\n");
         }
-
+        
         /// <summary>
         /// This method will clear the screen and display 
         /// all the names one above the other
         /// </summary>
         public static void DisplayNames()
         {
-            Console.Clear();
-
             Console.WriteLine("Original array :");
 
+            for (z = 0; z <= 4; ++z)
+            {
+                Console.WriteLine(names[z]);
+            }
 
+            Console.Write("\n");
         }
 
         /// <summary>
@@ -101,7 +114,29 @@ namespace CO453_Independent_Study.Unit5
         /// </summary>
         public static void SortNames()
         {
+            string position;
 
+            for (z = 0; z <= 4; ++z)
+            {
+                for (j = 0; j < 4; ++j)
+                {
+                    if (string.Compare(names[j], names[j + 1]) > 0)
+                    {
+                        position = names[j];
+                        names[j] = names[j + 1];
+                        names[j + 1] = position;
+                    }
+                }
+            }
+
+            Console.WriteLine("Sorted array: ");
+
+            for (z = 0; z <= 4; ++z)
+            {
+                Console.WriteLine(names[z]);
+            }
+
+            Console.Write("\n");
         }
     }
 }
