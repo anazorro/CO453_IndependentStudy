@@ -20,9 +20,6 @@ namespace CO453_Independent_Study
 
             Console.ReadKey();
         }
-
-    }
-}
        
         /// <summary>
         /// This class will call the
