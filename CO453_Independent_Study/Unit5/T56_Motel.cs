@@ -1,29 +1,33 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CO453_Independent_Study.Unit5
 {
+    /// <summary>
+    /// This class will simulate a booking system for the Bates Motel
+    /// Author: Ana Zorro, ID: 21903356
+    /// Started: 17/02/2019
+    /// Last Update:03/03/2019
+    /// </summary>
     class T56_Motel
     {
-        int[] rooms; //Define an integer array called rooms
-        const int MAX = 21;
+        private static int[] rooms;
+        private static int[] guests;
+        private const int MAX = 20;
+        private static int roomNumber, numberOfGuests;
 
-        public static void Main() //Program starts executing here
+        /// <summary>
+        /// This is the constructor method
+        /// </summary>
+        public T56_Motel()
         {
-            T56_Motel BatesMotel = new T56_Motel(); //Create new object BatesMotel
-
-            BatesMotel.RunMotel(); //Call its runMotel
+            rooms = new int[MAX]; //Allow room numbers from 1 to 20
+            guests = new int[MAX];
         }
 
-        public T56_Motel() //Contructor
-        {
-            rooms = new int[MAX]; //Allow room numbers from 1 to 5
-        }
-
-        public void RunMotel()
+        /// <summary>
+        /// This method will allow the user to choose from the menu
+        /// </summary>
+        public static void RunMotel()
         {
             string choice = "";
             do
@@ -42,21 +46,86 @@ namespace CO453_Independent_Study.Unit5
                 {
                     BookRoom();
                 }
-            } while (choice == ""); //tive de adicionar isto
+                else if(choice == "2")
+                {
+                    VacateOneRoom();
+                }
+                else if (choice == "3")
+                {
+                    ShowAllRooms();
+                }
+                else if(choice == "4")
+                {
+                    VacateAll();
+                }
+            } while (choice == "");
         }
 
-        public void BookRoom()
+        /// <summary>
+        /// This method will allow the user to book a room 
+        /// </summary>
+        public static void BookRoom()
         {
-            int roomNumber, guests;
             Console.WriteLine("\nThe Bates Motel");
             Console.WriteLine("=================");
             Console.WriteLine("Book a room");
-            Console.WriteLine("Enter the room number: ");
+
+            Console.Write("Enter the room number: ");
             roomNumber = Convert.ToInt32(Console.ReadLine());
             Console.Write("How many guests: ");
-            guests = Convert.ToInt32(Console.ReadLine());
-            rooms[roomNumber] = guests; //Make the booking
-            Console.WriteLine("Room " + roomNumber + " booked for " + guests);
+            numberOfGuests = Convert.ToInt32(Console.ReadLine());
+            rooms[roomNumber] = numberOfGuests; //Make the booking
+
+            Console.WriteLine("Room " + roomNumber + " booked for " + numberOfGuests);
+        }
+        
+        /// <summary>
+        /// This method will show all rooms and the correspondent number of guests
+        /// </summary>
+        public static void ShowAllRooms()
+        {
+            for (int i = 0; i < MAX; i++)
+            {
+                rooms[i] = UserLib.GetInt("Enter room number > ");
+                guests[i] = UserLib.GetInt("Enter the number of guests " + " > ");
+            }
+
+            Console.WriteLine();
+            Console.WriteLine("Bates Motel Room");
+            Console.WriteLine("===================");
+
+            for (int i = 0; i < MAX; i++)
+            {
+                Console.WriteLine("Room " + rooms[i] + "\t\t" + guests[i] + "guests");
+            }
+        }
+
+        /// <summary>
+        /// This method will vacate the room the user chooses
+        /// </summary>
+        public static void VacateOneRoom()
+        {
+            Console.WriteLine("\nThe Bates Motel");
+            Console.WriteLine("=================");
+            Console.WriteLine("Vacate one room");
+
+            Console.Write("Enter the room number: ");
+            roomNumber = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Enter zero: ");
+            numberOfGuests = Convert.ToInt32(Console.ReadLine());
+            rooms[roomNumber] = numberOfGuests;
+
+            Console.WriteLine("Room " + roomNumber + " it has been vacated! ");
+        }
+
+        /// <summary>
+        /// This method will vacate all rooms
+        /// </summary>
+        public static void VacateAll()
+        {
+            Array.Clear(rooms, 0, rooms.Length);
+
+            Console.WriteLine("All rooms have been vacated!");
         }
     }//End of Motel class
 }
